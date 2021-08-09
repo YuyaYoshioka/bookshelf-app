@@ -2,6 +2,7 @@ package server
 
 import (
 	"github.com/gin-gonic/gin"
+	"github.com/gin-contrib/cors"
 	"github.com/YuyaYoshioka/bookshelf-app/server/controller"
 )
 
@@ -12,6 +13,7 @@ func Init() {
 
 func router() *gin.Engine {
 	r := gin.Default()
+	r.Use(cors.Default())
 	
 	t := r.Group("/users")
 	{
