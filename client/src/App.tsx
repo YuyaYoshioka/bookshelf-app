@@ -3,11 +3,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  useHistory,
   Redirect,
 } from "react-router-dom";
 import { UserRegistration } from "pages/UserRegistration";
 import { HomePage } from "pages/HomePage";
+import { Login } from "pages/Login";
 import { loginUserId } from 'constant';
 
 const App: React.FC = () => {
@@ -16,11 +16,14 @@ const App: React.FC = () => {
   return (
     <Router>
       {!id && 
-        <Redirect to="/signup" />
+        <Redirect to="/login" />
       }
       <Switch>
         <Route exact path="/">
           <HomePage />
+        </Route>
+        <Route path="/login">
+          <Login />
         </Route>
         <Route path="/signup">
           <UserRegistration />

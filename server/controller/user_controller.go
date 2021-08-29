@@ -1,13 +1,13 @@
-package user
+package controllers
 
 import (
 	"github.com/YuyaYoshioka/bookshelf-app/server/service"
 	"github.com/gin-gonic/gin"
 )
 
-type Controller struct {}
+type UserController struct {}
 
-func (pc Controller) Create(c *gin.Context) {
+func (pc UserController) Create(c *gin.Context) {
 	var service user.Service
 	user, err := service.CreateModel(c)
 
@@ -18,7 +18,7 @@ func (pc Controller) Create(c *gin.Context) {
 	}
 }
 
-func (pc Controller) Show(c *gin.Context) {
+func (pc UserController) Show(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var service user.Service
 	user, err := service.GetById(id)

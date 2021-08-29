@@ -2,7 +2,7 @@ import { useState } from "react";
 import axios from "axios";
 import { Button } from "components/Button";
 import { TextInput } from "components/TextInput";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { loginUserId, serverUrl } from "constant";
 
 export type UserType = {
@@ -51,6 +51,7 @@ export const UserRegistration: React.FC = () => {
         buttonText="作成"
         onClick={handleClick}
       />
+      <Link to="login">ログインはこちら</Link>
     </>
   );
 }

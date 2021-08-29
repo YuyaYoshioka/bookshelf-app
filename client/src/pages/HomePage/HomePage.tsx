@@ -14,10 +14,9 @@ export const HomePage: FC = () => {
       })
   }, [setUser])
 
-
-  console.log(user)
   return (
     <>
+      <h1>TopPage</h1>
       <h1>{user?.name}</h1>
     </>
   )

@@ -35,3 +35,14 @@ func (s Service) GetById(id string) (User, error) {
 
 	return user, nil
 }
+
+func (s Service) GetByName(name string) (User, error) {
+	db := db.GetDB()
+	var user User
+
+	if err := db.Where("name = ?", name).First(&user).Error; err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
