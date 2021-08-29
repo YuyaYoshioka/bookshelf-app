@@ -1,4 +1,6 @@
 import axios from "axios";
+import { Button } from "components/Button";
+import { TextInput } from "components/TextInput";
 import { loginUserId, serverUrl } from "constant";
 import { UserType } from "pages/UserRegistration/UserRegistration";
 import { FC, useState } from "react";
@@ -6,7 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 
 export const Login: FC = () => {
   const history = useHistory();
-  const [userName, setUserName] = useState<string>();
+  const [userName, setUserName] = useState<string | number>("");
 
   const onClick = () => {
     axios.get(`${serverUrl}/login`, {
@@ -25,13 +27,15 @@ export const Login: FC = () => {
   return (
     <>
       <h1>ログイン</h1>
-      ユーザー名
-      <input
-        type="text"
+      <TextInput
+        titleText="ユーザー名"
         value={userName}
-        onChange={(e) => setUserName(e.target.value)}
+        onChange={setUserName}
       />
-      <button onClick={onClick}>ログイン</button>
+      <Button
+        buttonText="ログイン"
+        onClick={onClick}
+      />
       <Link to="/signup">ユーザー登録はこちら</Link>
     </>
   );
