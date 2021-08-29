@@ -1,31 +1,42 @@
-import * as React from "react";
+import { useState } from "react";
 import axios from "axios";
 import { Button } from "components/Button";
 import { TextInput } from "components/TextInput";
+import { useHistory } from "react-router-dom";
+import { loginUserId, serverUrl } from "constant";
 
-const { useState } = React;
+export type UserType = {
+  ID: string,
+  name: string,
+  password: string,
+  CreatedAt: Date,
+  UpdatedAt: Date,
+}
 
 export const UserRegistration: React.FC = () => {
   const [name, setName] = useState<string | number>('');
   const [password, setPassword] = useState<string | number>('');
 
+  const history = useHistory();
+
   const handleClick = (): void => {
-    console.log("click")
-    axios.post("http://localhost:8080/users", {
+    axios.post(`${serverUrl}/users`, {
       name: name,
       password: password,
     })
     .then(res => {
-      console.log("res")
-      console.log(res)
+      const user: UserType = res.data;
+      localStorage.setItem(loginUserId, user.ID);
+      history.push("/");
     })
     .catch(err => {
-      console.log("err:"+err)
+      console.error(err)
     })
   }
 
   return (
     <>
+      <h1>ユーザー登録</h1>
       <TextInput
         value={name}
         onChange={setName}
@@ -38,7 +49,7 @@ export const UserRegistration: React.FC = () => {
       />
       <Button
         buttonText="作成"
-        onClick={() => handleClick()}
+        onClick={handleClick}
       />
     </>
   );

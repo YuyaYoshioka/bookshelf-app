@@ -19,6 +19,7 @@ func router() *gin.Engine {
 	{
 		ctrl := user.Controller{}
 		t.POST("", ctrl.Create)
+		t.GET("/:id", ctrl.Show)
 	}
 
 	return r

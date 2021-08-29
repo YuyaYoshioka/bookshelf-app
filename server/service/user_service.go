@@ -24,3 +24,14 @@ func (s Service) CreateModel(c *gin.Context) (User, error) {
 
 	return user, nil
 }
+
+func (s Service) GetById(id string) (User, error) {
+	db := db.GetDB()
+	var user User
+
+	if err := db.Where("id = ?", id).First(&user).Error; err != nil {
+		return user, err
+	}
+
+	return user, nil
+}
