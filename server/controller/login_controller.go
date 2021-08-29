@@ -9,7 +9,7 @@ type LoginController struct {}
 
 func (pc LoginController) Show(c *gin.Context) {
 	name := c.Query("name")
-	var service user.Service
+	var service services.UserService
 	user, err := service.GetByName(name)
 
 	if err != nil {

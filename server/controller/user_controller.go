@@ -8,7 +8,7 @@ import (
 type UserController struct {}
 
 func (pc UserController) Create(c *gin.Context) {
-	var service user.Service
+	var service services.UserService
 	user, err := service.CreateModel(c)
 
 	if err != nil {
@@ -20,7 +20,7 @@ func (pc UserController) Create(c *gin.Context) {
 
 func (pc UserController) Show(c *gin.Context) {
 	id := c.Params.ByName("id")
-	var service user.Service
+	var service services.UserService
 	user, err := service.GetById(id)
 
 	if err != nil {

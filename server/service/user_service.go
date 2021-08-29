@@ -1,4 +1,4 @@
-package user
+package services
 
 import (
 	"github.com/gin-gonic/gin"
@@ -6,11 +6,11 @@ import (
 	"github.com/YuyaYoshioka/bookshelf-app/server/entity"
 )
 
-type Service struct{}
+type UserService struct{}
 
 type User entity.User
 
-func (s Service) CreateModel(c *gin.Context) (User, error) {
+func (s UserService) CreateModel(c *gin.Context) (User, error) {
 	db := db.GetDB()
 	var user User
 
@@ -25,7 +25,7 @@ func (s Service) CreateModel(c *gin.Context) (User, error) {
 	return user, nil
 }
 
-func (s Service) GetById(id string) (User, error) {
+func (s UserService) GetById(id string) (User, error) {
 	db := db.GetDB()
 	var user User
 
@@ -36,7 +36,7 @@ func (s Service) GetById(id string) (User, error) {
 	return user, nil
 }
 
-func (s Service) GetByName(name string) (User, error) {
+func (s UserService) GetByName(name string) (User, error) {
 	db := db.GetDB()
 	var user User
 

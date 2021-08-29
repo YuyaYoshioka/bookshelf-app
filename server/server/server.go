@@ -27,5 +27,11 @@ func router() *gin.Engine {
 		t.GET("", ctrl.Show)
 	}
 
+	t = r.Group("/genres")
+	{
+		ctrl := controllers.GenreController{}
+		t.POST("", ctrl.Create)
+	}
+
 	return r
 }

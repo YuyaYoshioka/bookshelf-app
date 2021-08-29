@@ -9,6 +9,7 @@ import { UserRegistration } from "pages/UserRegistration";
 import { HomePage } from "pages/HomePage";
 import { Login } from "pages/Login";
 import { loginUserId } from 'constant';
+import { GenreCreation } from "pages/GenreCreation";
 
 const App: React.FC = () => {
   const id = localStorage.getItem(loginUserId);
@@ -27,6 +28,9 @@ const App: React.FC = () => {
         </Route>
         <Route path="/signup">
           <UserRegistration />
+        </Route>
+        <Route path="/genres/new">
+          <GenreCreation />
         </Route>
       </Switch>
     </Router>
