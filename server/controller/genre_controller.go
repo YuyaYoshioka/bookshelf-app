@@ -1,8 +1,6 @@
 package controllers
 
 import (
-	"fmt"
-
 	"github.com/YuyaYoshioka/bookshelf-app/server/service"
 	"github.com/gin-gonic/gin"
 )
@@ -14,8 +12,19 @@ func (pc GenreController) Create(c *gin.Context) {
 	genre, err := service.CreateModel(c)
 
 	if err != nil {
-		fmt.Println(err)
+		c.AbortWithStatus(404)
 	} else {
 		c.JSON(201, genre)
+	}
+}
+
+func (pc GenreController) Index(c *gin.Context) {
+	var service services.GenreService
+	genres, err := service.GetAll(c)
+
+	if err != nil {
+		c.AbortWithStatus(404)
+	} else {
+		c.JSON(201, genres)
 	}
 }

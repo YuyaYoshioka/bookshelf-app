@@ -31,6 +31,7 @@ func router() *gin.Engine {
 	{
 		ctrl := controllers.GenreController{}
 		t.POST("", ctrl.Create)
+		t.GET("", ctrl.Index)
 	}
 
 	return r

@@ -24,3 +24,14 @@ func (s GenreService) CreateModel(c *gin.Context) (Genre, error) {
 
 	return genre, nil
 }
+
+func (s GenreService) GetAll(c *gin.Context) ([]Genre, error) {
+	db := db.GetDB()
+	var genres []Genre
+
+	if err := db.Find(&genres).Error; err != nil {
+		return genres, err
+	}
+
+	return genres, nil
+}
