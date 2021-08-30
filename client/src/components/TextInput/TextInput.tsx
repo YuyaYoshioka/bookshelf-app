@@ -1,8 +1,8 @@
 import * as React from "react";
 
 type TextInputProps = {
-  value: string | number,
-  onChange: (value: string | number) => void,
+  value: string,
+  onChange: (value: string) => void,
   titleText: string,
 }
 

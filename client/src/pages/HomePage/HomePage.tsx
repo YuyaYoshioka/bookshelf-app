@@ -4,7 +4,7 @@ import { FC, useEffect, useState } from "react";
 import { UserType } from "pages/UserRegistration/UserRegistration";
 
 export type GenreType = {
-  id: number,
+  ID: number,
   title: string,
 }
 

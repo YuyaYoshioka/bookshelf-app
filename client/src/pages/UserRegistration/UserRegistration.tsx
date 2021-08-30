@@ -14,8 +14,8 @@ export type UserType = {
 }
 
 export const UserRegistration: React.FC = () => {
-  const [name, setName] = useState<string | number>('');
-  const [password, setPassword] = useState<string | number>('');
+  const [name, setName] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
 
   const history = useHistory();
 

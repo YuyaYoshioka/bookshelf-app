@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 
 export const GenreCreation: FC = () => {
   const history = useHistory();
-  const [title, setTitle] = useState<string | number>("");
+  const [title, setTitle] = useState<string>("");
   
   const onClick = () => {
     axios.post(`${serverUrl}/genres`, {

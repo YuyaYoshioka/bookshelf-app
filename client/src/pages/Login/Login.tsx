@@ -8,7 +8,7 @@ import { Link, useHistory } from "react-router-dom";
 
 export const Login: FC = () => {
   const history = useHistory();
-  const [userName, setUserName] = useState<string | number>("");
+  const [userName, setUserName] = useState<string>("");
 
   const onClick = () => {
     axios.get(`${serverUrl}/login`, {
