@@ -24,6 +24,7 @@ const (
 func AutoMigration() {
 	db.AutoMigrate(&entity.User{})
 	db.AutoMigrate(&entity.Genre{})
+	db.AutoMigrate(&entity.Book{})
 }
 
 func DBOpen() *gorm.DB{

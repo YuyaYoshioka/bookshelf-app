@@ -34,5 +34,11 @@ func router() *gin.Engine {
 		t.GET("", ctrl.Index)
 	}
 
+	t = r.Group("/books")
+	{
+		ctrl := controllers.BookController{}
+		t.POST("", ctrl.Create)
+	}
+
 	return r
 }

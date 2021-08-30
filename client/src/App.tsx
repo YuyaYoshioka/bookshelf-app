@@ -10,6 +10,7 @@ import { HomePage } from "pages/HomePage";
 import { Login } from "pages/Login";
 import { loginUserId } from 'constant';
 import { GenreCreation } from "pages/GenreCreation";
+import { BookCreation } from "pages/BookCreation";
 
 const App: React.FC = () => {
   const id = localStorage.getItem(loginUserId);
@@ -31,6 +32,9 @@ const App: React.FC = () => {
         </Route>
         <Route path="/genres/new">
           <GenreCreation />
+        </Route>
+        <Route path="/books/new">
+          <BookCreation />
         </Route>
       </Switch>
     </Router>
