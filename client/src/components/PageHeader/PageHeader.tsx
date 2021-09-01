@@ -12,9 +12,10 @@ import { UserType } from "pages/UserRegistration/UserRegistration";
 
 type PageHeaderProps = {
   showBookCreationModal: () => void,
+  showGenreCreationModal: () => void,
 }
 
-export const PageHeader: FC<PageHeaderProps> = ({ showBookCreationModal }) => {
+export const PageHeader: FC<PageHeaderProps> = ({ showBookCreationModal, showGenreCreationModal }) => {
   const classes = useStyles();
   const [userName, setUserName] = useState<string>();
 
@@ -35,6 +36,9 @@ export const PageHeader: FC<PageHeaderProps> = ({ showBookCreationModal }) => {
         </Typography>
         <Button color="inherit" onClick={showBookCreationModal}>
           本を追加
+        </Button>
+        <Button color="inherit" onClick={showGenreCreationModal}>
+          ジャンルを追加
         </Button>
         <Button color="inherit" className={classes.loginButton}>
           {userName ? `${userName}さん` : "ログイン"}

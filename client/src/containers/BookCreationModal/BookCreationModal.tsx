@@ -37,7 +37,7 @@ export const BookCreationModal: FC<BookCreationModalProps> = ({ isOpen, closeEdi
         setGenres(genres);
         if (genres.length) setCurrentGenreId(String(genres[0].ID));
       })
-  }, [setGenres])
+  }, [setGenres, isOpen])
 
   return (
       <ModalFrame

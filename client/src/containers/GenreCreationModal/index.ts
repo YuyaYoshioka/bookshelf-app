@@ -1,0 +1,1 @@
+export { GenreCreationModal } from "./GenreCreationModal";
