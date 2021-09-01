@@ -25,8 +25,8 @@ export const BookCreationModal: FC<BookCreationModalProps> = ({ isOpen, closeEdi
       user_id: Number(localStorage.getItem(loginUserId)),
       genre_id: Number(currentGenreId),
     })
-      .then(res => {
-        console.log(res.data)
+      .then(_ => {
+        closeEditModal();
       })
   }
 
