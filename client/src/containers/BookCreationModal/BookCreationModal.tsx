@@ -40,39 +40,37 @@ export const BookCreationModal: FC<BookCreationModalProps> = ({ isOpen, closeEdi
   }, [setGenres])
 
   return (
-    <>
       <ModalFrame
         isOpen={isOpen}
       >
-        <ModalBody>
-          <h1>本棚に追加</h1>
-          <select onChange={(e) => setCurrentGenreId(e.target.value)} value={currentGenreId}>
-            {genres.map(genre => {
-              return(
-                <option key={genre.ID} value={genre.ID}>{genre.title}</option>
-              );
-            })}
-          </select>
-          <TextInput
-            titleText="タイトル"
-            value={title}
-            onChange={setTitle}
-          />
-          <TextInput
-            titleText="URL"
-            value={url}
-            onChange={setUrl}
-          />
-          <Button
-            buttonText="追加"
-            onClick={onClick}
-          />
-          <Button
-            buttonText="キャンセル"
-            onClick={closeEditModal}
-          />
-        </ModalBody>
-      </ModalFrame>
-    </>
+      <ModalBody>
+        <h1>本棚に追加</h1>
+        <select onChange={(e) => setCurrentGenreId(e.target.value)} value={currentGenreId}>
+          {genres.map(genre => {
+            return(
+              <option key={genre.ID} value={genre.ID}>{genre.title}</option>
+            );
+          })}
+        </select>
+        <TextInput
+          titleText="タイトル"
+          value={title}
+          onChange={setTitle}
+        />
+        <TextInput
+          titleText="URL"
+          value={url}
+          onChange={setUrl}
+        />
+        <Button
+          buttonText="追加"
+          onClick={onClick}
+        />
+        <Button
+          buttonText="キャンセル"
+          onClick={closeEditModal}
+        />
+      </ModalBody>
+    </ModalFrame>
   );
 }
