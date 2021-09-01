@@ -10,34 +10,43 @@ import { HomePage } from "pages/HomePage";
 import { Login } from "pages/Login";
 import { loginUserId } from 'constant';
 import { GenreCreation } from "pages/GenreCreation";
-import { BookCreation } from "pages/BookCreation";
+import { PageHeader } from 'components/PageHeader';
+import { BookCreationModal } from 'containers/BookCreationModal';
+import { useState } from 'react';
 
 const App: React.FC = () => {
+  const [showBookCreationModal, setShowBookCreationModal] = useState<boolean>(false);
   const id = localStorage.getItem(loginUserId);
 
   return (
-    <Router>
-      {!id && 
-        <Redirect to="/login" />
-      }
-      <Switch>
-        <Route exact path="/">
-          <HomePage />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <UserRegistration />
-        </Route>
-        <Route path="/genres/new">
-          <GenreCreation />
-        </Route>
-        <Route path="/books/new">
-          <BookCreation />
-        </Route>
-      </Switch>
-    </Router>
+    <>
+      <PageHeader
+        showBookCreationModal={() => setShowBookCreationModal(true)}
+      />
+      <BookCreationModal
+        isOpen={showBookCreationModal}
+        closeEditModal={() => setShowBookCreationModal(false)}
+      />
+      <Router>
+        {!id &&
+          <Redirect to="/login" />
+        }
+        <Switch>
+          <Route exact path="/">
+            <HomePage />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/signup">
+            <UserRegistration />
+          </Route>
+          <Route path="/genres/new">
+            <GenreCreation />
+          </Route>
+        </Switch>
+      </Router>
+    </>
   );
 }
 
